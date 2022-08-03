@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container" style="padding-top:10px;">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel-title">Delete Course</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="margin-left:50px;margin-right:50px;">
+                <div class="row">
+                    <h2>Are you sure you want to delete this course?</h2>
+                    <input type="hidden" id="cid" name="cid" value={{course}}>
+                    <form action="teacherCourses" method="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button class="btn btn-primary" value="DELETECOURSE" name="submit_button">Delete</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-primary" value="DELETECOURSE" name="submit_button">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

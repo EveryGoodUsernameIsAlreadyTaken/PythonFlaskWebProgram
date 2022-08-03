@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container" style="padding-top:10px;">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel-title">{{coursename}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="margin-left:50px;margin-right:50px;">
+                <div class="row">
+                    <table class="table table-bordered" id="orders">
+                        <tr>
+                            <th width="10%" class="text-center">Student Id</th>
+                            <th width="30%" class="text-center">Student Name</th>
+                        </tr>
+                        {% if sidlist %}
+                        {% for st in sidlist %}
+                        <tr>
+                            <td>
+                                {{st[0]}}
+                            </td>
+                            <td>{{st[1]}} {{st[2]}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% extends "s_explorecategories.html" %}
+
+{% block content2 %}
+
+<div class="container" style="padding-top:10px;">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                     <div class="panel-title">{{courses[5]}}</div>
+                </div>
+            </div>
+            <div class="panel-body" style="margin-left:50px;margin-right:50px;">
+                <div class="row">
+                    <form action="exploreCategories" method="post">
+                        <table class="table table-bordered" id="orders">
+                            <tr>
+                                <th width="3%"></th>
+                                <th width="10%" class="text-center">Classname</th>
+                                <th width="30%" class="text-center">Textbook</th>
+                                <th width="5%" class="text-center">Size</th>
+                                <th width="5%" class="text-center">RoomNo</th>
+                                <th width="5%" class="text-center">Time</th>
+                            </tr>
+                            {% if courses %}
+                            {% for course in courses %}
+                            <tr>
+                                <td>
+                                    {%if course[5] < course[4]:%}
+                                    <button type="submit" class="btn" value="JOIN" name="submit_button">
+                                        <input type="hidden" id="cid" name="cid" value="{{course[0]}}">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                    {% endif %}
+                                </td>
+                                <td><input type="hidden" id="classname" name="classname" value="{{course[2]}}">{{course[2]}}</td>
+                                <td>{{course[3]}}</td>
+                                <td>{{course[5]}}/{{course[4]}}</td>
+                                <td>{{course[6]}}</td>
+                                <td><input type="hidden" id="time" name="time" value="{{course[8]}}">{{course[8]}}</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

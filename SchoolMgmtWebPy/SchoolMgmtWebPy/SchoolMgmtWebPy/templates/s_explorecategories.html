@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    {% if categories %}
+                    {% for category in categories %}
+                    <span class="icon-bar"></span>
+                    {% endfor %}
+                    {% endif %}
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    {% if categories %}
+                    {% for category in categories %}
+                    <li>
+                        <form action="exploreCategories" method="post">
+                            <input type="hidden" name="submit_category" value="{{category[0]}}" />
+                            <button type="submit" name="submit_button" id="submit_button" value="CATEGORY" style="background: none; border: none; padding: 15px; color:white;">
+                                {{category[0]}}
+                            </button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-content">
+        {% block content2 %}{% endblock %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container" style="padding-top:10px;">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel-title">Your Courses</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="margin-left:50px;margin-right:50px;">
+                <div class="row">
+                    <form action="teacherCourses" method="POST">
+                        <table class="table table-bordered" id="orders">
+                            <tr>
+                                <th width="15%"></th>
+                                <th width="10%" class="text-center">Category</th>
+                                <th width="10%" class="text-center">Classname</th>
+                                <th width="20%" class="text-center">Textbook</th>
+                                <th width="5%" class="text-center">Size</th>
+                                <th width="5%" class="text-center">RoomNo</th>
+                                <th width="5%" class="text-center">Time</th>
+                            </tr>
+                            {% if courses %}
+                            {% for course in courses %}
+                            <tr>
+                                <td>
+                                    <button type="submit" class="btn" value="EXPAND" name="submit_button">
+                                        <input type="hidden" id="cid" name="cid" value="{{course[0]}}">
+                                        <input type="hidden" id="classname" name="classname" value="{{course[2]}}">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                    <button type="submit" class="btn" value="ASSIGN" name="submit_button">
+                                        <input type="hidden" id="cid" name="cid" value="{{course[0]}}">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </button>
+                                    <button type="submit" class="btn" value="DELETE" name="submit_button">
+                                        <input type="hidden" id="cid" name="cid" value="{{course[0]}}">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                                <td>{{course[7]}}</td>
+                                <td>{{course[2]}}</td>
+                                <td>{{course[3]}}</td>
+                                <td>{{course[5]}}/{{course[4]}}</td>
+                                <td>{{course[6]}}</td>
+                                <td>{{course[8]}}</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

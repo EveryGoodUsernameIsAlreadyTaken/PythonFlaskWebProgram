@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container" style="padding-top:10px;">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="panel-title">Your Courses</div>
+                </div>
+            </div>
+            <div class="panel-body" style="margin-left:10px;margin-right:10px;">
+                <div class="row">
+                        <table class="table table-bordered" id="orders">
+                            <tr>
+                                <th width="3%"></th>
+                                <th width="10%" class="text-center">Classname</th>
+                                <th width="30%" class="text-center">Textbook</th>
+                                <th width="5%" class="text-center">Size</th>
+                                <th width="5%" class="text-center">RoomNo</th>
+                                <th width="5%" class="text-center">Time</th>
+                            </tr>
+                            {% if courses %}
+                            {% for course in courses %}
+                            <tr>
+                                <td>
+                                    <form action="studentCourses" method="post">
+                                        <input type="hidden" id="cid" name="cid" value="{{course[0]}}">
+                                        <input type="hidden" id="classname" name="classname" value="{{course[2]}}">
+                                        <input type="hidden" id="textbook" name="textbook" value="{{course[3]}}">
+                                        <input type="hidden" id="maxsize" name="maxsize" value="{{course[4]}}">
+                                        <input type="hidden" id="cursize" name="cursize" value="{{course[5]}}">
+                                        <input type="hidden" id="roomno" name="roomno" value="{{course[6]}}">
+                                        <input type="hidden" id="time" name="time" value="{{course[8]}}">
+                                        {% if page == 'DEL': %}
+                                        <button type="submit" onclick="clicked(event)" name="submit_button" value="DEL">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                        {% elif page == 'TEST' %}
+                                        <button type="submit" name="submit_button" value="TEST">
+                                            <span class="glyphicon glyphicon-wrench"></span>
+                                        </button>
+                                        {% elif page == 'REPORT' %}
+                                        <button type="submit" name="submit_button" value="REPORT">
+                                            <span class="glyphicon glyphicon-wrench"></span>
+                                        </button>
+                                        {% endif %}
+                                    </form>
+                                </td>
+                                <td>{{course[2]}}</td>
+                                <td>{{course[3]}}</td>
+                                <td>
+                                    {{course[5]}}/{{course[4]}}
+                                </td>
+                                <td>{{course[6]}}</td>
+                                <td>{{course[8]}}</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function clicked(e) {
+        if (!confirm('Are you sure?')) {
+            e.preventDefault();
+        }
+    }
+</script>
+
+{% endblock %}
