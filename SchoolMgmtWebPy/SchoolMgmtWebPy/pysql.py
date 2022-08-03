@@ -8,13 +8,13 @@ import pyodbc
 
 class pySQL:
     def __init__(self):
-        self.cnxn = pyodbc.connect('DRIVER={MySQL ODBC 8.0 ANSI Driver}; SERVER=hyunook; DATABASE=SCHOOLPYDB; UID=pytest; PWD=pytest;')
+        self.cnxn = pyodbc.connect('*YOUR CONNECTION*')
         self.cursor = self.cnxn.cursor()
         pass
 
     def Connection(self):
         self.cursor.close()
-        self.cnxn = pyodbc.connect('DRIVER={MySQL ODBC 8.0 ANSI Driver}; SERVER=hyunook; DATABASE=SCHOOLPYDB; UID=pytest; PWD=pytest;')
+        self.cnxn = pyodbc.connect('*YOUR CONNECTION*')
         self.cursor = self.cnxn.cursor()
 
     def Disconnection(self):
