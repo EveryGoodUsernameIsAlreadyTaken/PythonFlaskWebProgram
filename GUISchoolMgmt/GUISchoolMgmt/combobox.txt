@@ -1,0 +1,32 @@
+from msilib.schema import ComboBox
+from tkinter import *
+import tkinter.ttk as ttk
+
+root = Tk()
+root.title("Nado Gui")
+root.geometry("600x600+300+50")
+root.resizable(False, False)
+
+Label(root, text = "pick").pack()
+
+choice_var = IntVar()
+btn_choice1 = Radiobutton(root, text="choice1", value=1, variable=choice_var)
+btn_choice2 = Radiobutton(root, text="choice2", value=2, variable=choice_var)
+btn_choice3 = Radiobutton(root, text="choice3", value=3, variable=choice_var)
+
+btn_choice1.pack()
+btn_choice2.pack()
+btn_choice3.pack()
+
+values = [str(i) + ". aa" for i in range(1, 32)]
+combobox = ttk.Combobox(root, height = 5, values = values) # , state = "readonly"
+combobox.set("choice") # combobox.current(0)
+combobox.pack()
+
+def btncmd():
+    pass
+
+btn1 = Button(root, text = "Delete", command = btncmd)
+btn1.pack()
+
+root.mainloop()

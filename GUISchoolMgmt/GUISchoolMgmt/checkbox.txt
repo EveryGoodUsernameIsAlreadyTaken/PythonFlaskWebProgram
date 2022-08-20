@@ -1,0 +1,27 @@
+from tkinter import *
+
+root = Tk()
+root.title("Nado Gui")
+root.geometry("600x600+300+50")
+root.resizable(False, False)
+
+listbox = Listbox(root, selectmode="single", height = 0)
+listbox.insert(END, "apple")
+listbox.insert(END, "banana")
+listbox.insert(END, "cherry")
+listbox.insert(END, "durian")
+
+listbox.pack()
+
+chkvar = IntVar()
+chkbox = Checkbutton(root, text = "eraer", variable=chkvar)
+chkbox.pack()
+
+def btncmd():
+    if listbox.curselection() and chkvar.get() != 0:
+        listbox.delete(listbox.curselection())
+
+btn1 = Button(root, text = "Delete", command = btncmd)
+btn1.pack()
+
+root.mainloop()

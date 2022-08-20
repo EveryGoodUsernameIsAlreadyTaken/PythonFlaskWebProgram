@@ -1,0 +1,64 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ce99cdcc-e177-4eb8-b2f1-11095a997595</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>GUISchoolMgmt.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>GUISchoolMgmt</Name>
+    <RootNamespace>GUISchoolMgmt</RootNamespace>
+    <InterpreterId>MSBuild|.venv|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Course.py" />
+    <Compile Include="CourseHist.py" />
+    <Compile Include="GUISchoolMgmt.py" />
+    <Compile Include="Lecture.py" />
+    <Compile Include="pysql.py" />
+    <Compile Include="Report.py" />
+    <Compile Include="Student.py" />
+    <Compile Include="Teacher.py" />
+    <Compile Include="Test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="buttons.txt" />
+    <Content Include="checkbox.txt" />
+    <Content Include="combobox.txt" />
+    <Content Include="menu.txt" />
+    <Content Include="messageboxes.txt" />
+    <Content Include="Progressbar.txt" />
+    <Content Include="frame.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="..\.venv\.venv\">
+      <Id>.venv</Id>
+      <Version>3.9</Version>
+      <Description>.venv (Python 3.9 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
